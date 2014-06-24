@@ -7,8 +7,21 @@ a {
   color: #00B7FF;
 }
 
+.container {
+	width: 800px
+}
+
 .create {
 	position: relative;
 	top: 100;
 	left: 100;
+}
+
+.invoice {
+	border: 1px solid black;
+}
+
+.heading {
+	text-align: center;
+	font-weight: bold;
 }
