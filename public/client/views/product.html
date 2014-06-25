@@ -1,0 +1,24 @@
+<div ng-controller="ProductController">
+	<table class="table">
+		<tr>
+			<th></th>
+			<th>Name</th>
+			<th>Description</th>
+			<th>Other Field</th>
+			<th>Cost</th>
+		</tr>
+		<tr ng-repeat="product in products">
+			<td>
+				<label>
+			        <input type="checkbox" ng-model="product.checked"/>
+			    </label>
+			</td>
+			<td>{{product.name}}</td>
+			<td>{{product.description}}</td>
+			<td>{{product.other}}</td>
+			<td>{{product.cost}}</td>
+		</tr>
+	</table>
+	<button type="button" class="btn btn-large" ng-click="select()">Select</button>
+	<br> list of checked items: {{checkedItems()}}
+</div>

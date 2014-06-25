@@ -1,16 +1,62 @@
 <div ng-controller="InvoiceController">
 	<div class="container">
-		<table class="invoice">
+		<table class="table invoice">
 			<tr>
-				<td class='heading' colspan="2">INVOICE</td>
-			</tr>
-			<tr>
-				<td>
-					<div>Invoice # <input type="text" class="invoiceNum" ng-model="invoiceNum"></div>
-					<div>Date <input type="date" class="invoiceDate" ng-model="invoiceDate"></div>
-					<div>Customer Name <input type="text" class="invoiceTo" ng-model="invoiceTo"></div>
+				<td class='heading' colspan="10">
+					<h2>INVOICE</h2>
+					<h4 class="company name">{{invoice.companyName}}</h4>
+					<div class="company address">{{invoice.companyAddress}}</div>
 				</td>
 			</tr>
+			<tr>
+				<td colspan="5">
+					<div><input type="text" class="customerName" ng-model="invoice.customerName" placeholder="Customer Name"></div>
+					<div><input type="text" class="customerAddress" ng-model="invoice.customerAddress" placeholder="Customer Address"></div>
+				</td>
+				<td colspan="5" class='invoiceInfo'>
+					<div>Invoice #<input type="text" class="invoiceNum" ng-model="invoice.invoiceNum" placeholder="Invoice Number"></div>
+					<div>Date<input type="date" class="invoiceDate" ng-model="invoice.invoiceDate" placeholder="Please pick a date"></div>
+				</td>
+			</tr>
+			<tr>
+			</tr>
+			<tr class='items'>
+				<th colspan="4">Product Name</th>
+				<th colspan="2">Quantity</th>
+				<th colspan="2">Price</th>
+				<th colspan="2" align="right">Total</th>
+			</tr>
+			<tr ng-repeat="item in invoiceItems">
+				<td colspan="4">{{item.name}}</td>
+				<td colspan="2"><input ng-model="item.qty" ng-required ng-validate="integer" placeholder="quantity"></td>
+				<td colspan="2">$<input ng-model="item.cost" ng-required ng-validate="integer" placeholder="price"></td>
+				<td colspan="2" align="right">{{item.qty * item.cost | currency}}</td>
+			</tr>
+			<tr>
+				<td colspan="10" align="right">
+					<button type="button" class="btn btn-default btn-success" ng-click="addToCart()">Add Items</button>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="8" align="right">Subtotal</td>
+				<td colspan="2" align="right">$230.00</td>
+			</tr>
+			<tr>
+				<td colspan="8" align="right">Estimated Tax</td>
+				<td colspan="2" align="right">10%</td>
+			</tr>
+			<tr>
+				<td colspan="8" align="right">Shipping &amp Handling</td>
+				<td colspan="2" align="right">$7.00</td>
+			</tr>
+			<tr>
+				<td colspan="8" align="right"><h4>GRAND TOTAL</h4></td>
+				<td colspan="2" align="right"><h4>$240.00</h4></td>
+			</tr>
+			<tr>
+				<td colspan="10" align="right">
+					<button type="button" class="btn btn-default btn-danger" ng-click="save()">Save</button></tr>
+				</td>
 		</table>
 	</div>
 </div>

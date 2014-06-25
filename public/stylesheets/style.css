@@ -17,11 +17,33 @@ a {
 	left: 100;
 }
 
-.invoice {
-	border: 1px solid black;
-}
-
 .heading {
 	text-align: center;
 	font-weight: bold;
+}
+
+.invoice {
+	width: 800px;
+}
+
+.invoiceInfo {
+	text-align: right
+}
+
+input {
+	padding-left: 10px;
+	border: 1px solid #FFF;
+	margin-bottom: 5px;
+}
+
+input:hover {
+	border: 1px solid #CCCCCC;
+}
+
+.customerName {
+	font-weight: bold;
+}
+
+.customerAddress {
+	width: 400px;
 }

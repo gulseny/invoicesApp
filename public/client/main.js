@@ -1,4 +1,4 @@
-var app = angular.module('invoices', ['appHomeController', 'appInvoiceController']);
+var app = angular.module('invoices', ['appHomeController', 'appInvoiceController', 'appProductController']);
 
 app.config(['$routeProvider', function($routeProvider){
 	$routeProvider.when('/', {
@@ -7,6 +7,9 @@ app.config(['$routeProvider', function($routeProvider){
 	}).when('/createInvoice', {
 		controller: 'InvoiceController',
 		templateUrl: "client/views/invoice.html"
+	}).when('/selectProduct',{
+		controller: 'ProductController',
+		templateUrl: "client/views/product.html"
 	}).otherwise({
 		redirectTo: '/'
 	});
