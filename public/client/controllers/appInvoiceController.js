@@ -43,6 +43,14 @@ appInvoiceController.controller('InvoiceController', ['$scope', '$location', fun
 		}
 	];
 
+	//redirects to product selection view
+	$scope.addToCart = function(){
+		$location.path('/selectProduct');
+	};
+
+	//removes line items from the invoice
+	$scope.remove = function(){};
+
 	//calculates tax rate based on customer state
 	$scope.taxRate = function(state){};
 
@@ -51,11 +59,6 @@ appInvoiceController.controller('InvoiceController', ['$scope', '$location', fun
 
 	//updates invoice subtotal, taxes, s&h, and grand total based on qty, cost, & tax/s&h rates
 	$scope.updateTotal = function(){};
-
-	//redirects to product selection view
-	$scope.addToCart = function(){
-		$location.path('/selectProduct');
-	};
 
 	// saves the invoice to the database and redirects to the beginning of the invoice creation cycle
 	$scope.save = function(){
